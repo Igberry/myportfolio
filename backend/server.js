@@ -17,4 +17,4 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 app.use('/api/contact', contactRoutes);
 
-app.listen(PORT, () => console.log(`Server running at http://127.0.0.1:${PORT}`));
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
