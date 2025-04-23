@@ -25,7 +25,8 @@ exports.sendMessage = async (req, res) => {
             from: `"Ig-berry Portfolio" <${process.env.SMTP_USER}>`,
             to: process.env.EMAIL_RECEIVER,
             subject: `New Message from ${name}`,
-            text: `You received a new message from your portfolio site:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`
+            text: `You received a new message from your portfolio site:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+            replyTo: email // <-- Add this line to specify the reply-to address
         });
 
         res.status(200).json({ message: 'Message sent successfully and email delivered!' });
