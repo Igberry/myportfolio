@@ -24,7 +24,7 @@ exports.sendMessage = async (req, res) => {
         // Send email
         await transporter.sendMail({
             from: `"Ig-berry Portfolio" <${process.env.SMTP_USER}>`,
-            to: process.env.EMAIL_RECEIVER,
+            to: process.env.SMTP_USER,
             subject: `New Message from ${name}`,
             text: `You received a new message from your portfolio site:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
             replyTo: email // <-- Add this line to specify the reply-to address
