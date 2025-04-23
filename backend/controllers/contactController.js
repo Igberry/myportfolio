@@ -12,13 +12,14 @@ exports.sendMessage = async (req, res) => {
         // Email transporter setup
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT),
-            secure: process.env.SMTP_SECURE === 'true', // true for 465
+            port: Number(process.env.SMTP_PORT), // Ensure it's a number
+            secure: Number(process.env.SMTP_PORT) === 465, // Explicit comparison
             auth: {
                 user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS
-            }
+                pass: process.env.SMTP_PASS,
+            },
         });
+
 
         // Send email
         await transporter.sendMail({
