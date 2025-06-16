@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ig-berry Pro E-Shop</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Ig-berry Shop</h1>
+            <input type="text" id="search" placeholder="Search products..." />
+            <div class="cart-toggle" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="product-list" class="products"></section>
+    </main>
+
+    <aside id="cart" class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p class="total">Total: ₦<span id="total">0.00</span></p>
+        <button onclick="checkout()">Checkout</button>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
