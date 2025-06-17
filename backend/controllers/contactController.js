@@ -12,8 +12,8 @@ exports.sendMessage = async (req, res) => {
         // Email transporter setup
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT), // Ensure it's a number
-            secure: Number(process.env.SMTP_PORT) === 465, // Explicit comparison
+            port: Number(process.env.SMTP_PORT),
+            secure: Number(process.env.SMTP_PORT) === 465,
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
@@ -27,7 +27,7 @@ exports.sendMessage = async (req, res) => {
             to: process.env.SMTP_USER,
             subject: `New Message from ${name}`,
             text: `You received a new message from your portfolio site:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
-            replyTo: email // <-- Add this line to specify the reply-to address
+            replyTo: email
         });
 
         res.status(200).json({ message: 'Message sent successfully and email delivered!' });
